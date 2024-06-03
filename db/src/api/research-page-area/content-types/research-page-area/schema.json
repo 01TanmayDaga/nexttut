@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "research_page_areas",
+  "info": {
+    "singularName": "research-page-area",
+    "pluralName": "research-page-areas",
+    "displayName": "ResearchPageArea"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heading": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

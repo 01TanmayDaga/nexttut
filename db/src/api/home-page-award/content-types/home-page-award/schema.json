@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_page_awards",
+  "info": {
+    "singularName": "home-page-award",
+    "pluralName": "home-page-awards",
+    "displayName": "HomePageAward"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "blocks"
+    }
+  }
+}

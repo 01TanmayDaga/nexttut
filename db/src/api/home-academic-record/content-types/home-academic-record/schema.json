@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_academic_records",
+  "info": {
+    "singularName": "home-academic-record",
+    "pluralName": "home-academic-records",
+    "displayName": "HomePageAcademicRecord",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "blocks"
+    }
+  }
+}

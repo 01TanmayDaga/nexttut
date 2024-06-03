@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_page_professional_careers",
+  "info": {
+    "singularName": "home-page-professional-career",
+    "pluralName": "home-page-professional-careers",
+    "displayName": "HomePageProfessionalCareer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "value": {
+      "type": "blocks"
+    }
+  }
+}
