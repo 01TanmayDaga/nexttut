@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar  from "@/components/ui/home/nav";
+import Navbar from "@/components/ui/nav";
+import Footer from "@/components/ui/footer"
+import AOSProvider from "@/components/ui/animation/AOS";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,11 +15,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+      </head>
+      <AOSProvider>
+        <body className={`${inter.className} bg-white-100`}>
+          <Navbar />
+          {children}
+          <Footer/>
+        </body>
+      </AOSProvider>
+
    
-      <body className={`${inter.className} light`}>
-        <Navbar />
-        {children}
-      </body>
     </html>
   );
 }

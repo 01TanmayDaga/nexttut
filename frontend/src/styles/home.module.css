@@ -3,14 +3,14 @@
     content: '';
    position: absolute;
    width: 0%;
-   height: 2px;
-   bottom: -4px;
-   left: 0;
+   height: 3px;
+   bottom: -5px;
+    left: 10%;
    visibility: hidden;
    transition: all 0.3s ease-in-out;
  }
  .nav-links-md:hover::after {
-   width: 100%;
+   width: 80%;
    visibility: visible;
  }
  
