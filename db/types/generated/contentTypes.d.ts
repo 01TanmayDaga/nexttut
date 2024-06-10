@@ -362,6 +362,36 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAcademicRecordAcademicRecord extends Schema.CollectionType {
+  collectionName: 'academic_records';
+  info: {
+    singularName: 'academic-record';
+    pluralName: 'academic-records';
+    displayName: 'AcademicRecord';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    value: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::academic-record.academic-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::academic-record.academic-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -788,132 +818,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomeAcademicRecordHomeAcademicRecord
-  extends Schema.CollectionType {
-  collectionName: 'home_academic_records';
-  info: {
-    singularName: 'home-academic-record';
-    pluralName: 'home-academic-records';
-    displayName: 'HomePageAcademicRecord';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    value: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-academic-record.home-academic-record',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-academic-record.home-academic-record',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomePageAwardHomePageAward extends Schema.CollectionType {
-  collectionName: 'home_page_awards';
-  info: {
-    singularName: 'home-page-award';
-    pluralName: 'home-page-awards';
-    displayName: 'HomePageAward';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    value: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-page-award.home-page-award',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-page-award.home-page-award',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHomePageProfessionalCareerHomePageProfessionalCareer
-  extends Schema.CollectionType {
-  collectionName: 'home_page_professional_careers';
-  info: {
-    singularName: 'home-page-professional-career';
-    pluralName: 'home-page-professional-careers';
-    displayName: 'HomePageProfessionalCareer';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    value: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-page-professional-career.home-page-professional-career',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-page-professional-career.home-page-professional-career',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiResearchPageAreaResearchPageArea
-  extends Schema.CollectionType {
-  collectionName: 'research_page_areas';
-  info: {
-    singularName: 'research-page-area';
-    pluralName: 'research-page-areas';
-    displayName: 'ResearchPageArea';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    heading: Attribute.Blocks;
-    description: Attribute.Blocks;
-    images: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::research-page-area.research-page-area',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::research-page-area.research-page-area',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -924,6 +828,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::academic-record.academic-record': ApiAcademicRecordAcademicRecord;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -932,10 +837,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::home-academic-record.home-academic-record': ApiHomeAcademicRecordHomeAcademicRecord;
-      'api::home-page-award.home-page-award': ApiHomePageAwardHomePageAward;
-      'api::home-page-professional-career.home-page-professional-career': ApiHomePageProfessionalCareerHomePageProfessionalCareer;
-      'api::research-page-area.research-page-area': ApiResearchPageAreaResearchPageArea;
     }
   }
 }
