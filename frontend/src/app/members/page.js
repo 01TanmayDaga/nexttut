@@ -1,6 +1,6 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import { FaLinkedin } from 'react-icons/fa';
+import { getAlternateVibrantColorClass } from "@/components/lib/colors";
+
+
 
 const members = [
   { id: 1, name: 'John Doe', type: 'Postgraduate', role: 'Researcher', description: 'Frontend developer with 5 years of experience, specializing in creating interactive and dynamic user interfaces.', image: '/images/john.jpg', linkedin: 'https://www.linkedin.com/in/johndoe' },
@@ -20,24 +20,32 @@ const members = [
   { id: 15, name: 'Laura White', type: 'Faculty', role: 'Senior Lecturer', description: 'Senior lecturer with a deep understanding of software engineering principles and practices.', image: '/images/laura.jpg', linkedin: 'https://www.linkedin.com/in/laurawhite' },
 ];
 
+
 const Members = () => {
   const groupedMembers = members.reduce((acc, member) => {
     (acc[member.type] = acc[member.type] || []).push(member);
     return acc;
   }, {});
 
+  
+  // Example usage:
+  const getNextAlternateColorClass = getAlternateVibrantColorClass();
+    // Generate a random index within the range of the vibrantColors array
+   
+  
+
   return (
 <div className="container mx-auto p-4">
-      <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">Members</h1>
+
       {Object.keys(groupedMembers).map((type) => (
         <div key={type} className="mb-8">
           <h2 className="text-3xl font-semibold text-blue-600 text-center my-20 ">{type}</h2>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))]  gap-8 justify-items-center">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8 justify-items-center">
             {groupedMembers[type].map((member) => (
               <div key={member.id} className="relative bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 hover:border-blue-600 border transition-transform duration-300 w-full max-w-xs h-[420px]">
-                <div className="bg-blue-600 h-2/6 flex items-center justify-center relative">
+                <div className={`${getNextAlternateColorClass()} h-2/6 flex items-center justify-center relative`}>
                 <a href={member.linkedin} className='hover:cursor-pointer flex justify-center items-center'>
-                  <img src={member.image} alt={member.name} className="w-32 h-32 rounded-full object-cover border-4 border-gray-300 absolute bottom-0 transform translate-y-1/2" />
+                  <img src={member.image} alt={member.name} className="w-32 h-32 rounded-full object-cover border-4 border-gray-300 hover:border-gray-500 transition-all duration-300 absolute bottom-0 transform translate-y-1/2" />
                   </a>
                 </div>
                 <div className="mt-16 p-6">
