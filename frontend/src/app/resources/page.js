@@ -127,23 +127,27 @@ const Resources = () => {
 
       <div className="container mx-auto px-4 py-8 bg-skyblue">
         <h1 className="text-3xl font-semibold mb-8"><i class="fa-solid fa-flask text-2xl"></i> Lab Resources</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-[repeat(auto-fill, minmax(200px, 1fr))] gap-6">
           {data.resources_developed_by_the_lab.map((resource, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6">
+            <div key={index} className="rounded-lg shadow-md p-6">
               <h2 className="text-lg font-semibold mb-2">{resource.name}</h2>
               {resource.description && <li>{resource.description}</li>}
               {resource.datasets && (
-                <ul className="list-disc pl-5">
+         
+                <ul className="list-disc pl-5 h-fit">
                   {resource.datasets.map((dataset, index) => (
                     <li key={index} className="mb-1">
                       {dataset.name}: {dataset.description}
                     </li>
                   ))}
                 </ul>
+              
+             
+                
               )}
             </div>
           ))}
-          <div className="bg-white rounded-lg shadow-md p-6">
+          <div className="bg-white rounded-lg shadow-md p-6 hover:scale-105 duration-500 transition-all hover:border-blue-400 hover:border-2">
             <h2 className="text-lg font-semibold mb-2"><i class="fa-brands fa-python text-2xl text-yellow-500"></i>      Python Libraries</h2>
             <ul className="list-disc pl-5">
               {data.python_libraries.map((library, index) => (
@@ -154,6 +158,7 @@ const Resources = () => {
             </ul>
           </div>
           <div className="bg-white rounded-lg shadow-md p-6">
+
             <h2 className="text-lg font-semibold mb-2"><i class="fa-brands fa-r-project text-2xl text-red-500"></i>       R Packages</h2>
             <ul className="list-disc pl-5">
               {data.r_packages.map((name, index) => (
@@ -163,8 +168,9 @@ const Resources = () => {
               ))}
             </ul>
           </div>
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-lg font-semibold mb-2">Important Tools</h2>
+          <div className="bg-white rounded-lg shadow-md p-6 ">
+
+            <h2 className="text-lg font-semibold mb-2"><i className="fa-solid fa-fire text-2xl text-orange-500"></i>   Important Tools</h2>
             <ul className="list-disc pl-5">
               {data.important_tools.map((tool, index) => (
                 <li key={index} className="mb-1">

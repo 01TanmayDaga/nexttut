@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  
   content: {
-
     files: [
       "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
       "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,6 +8,23 @@ module.exports = {
     ],
   },
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1792px",
+      "4xl": "2048px",
+      "5xl": "2304px",
+      "6xl": "2560px",
+      "7xl": "2816px",
+      "8xl": "3072px",
+      "9xl": "3328px",
+      "10xl": "3584px",
+      "11xl": "3840px",
+    },
+
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

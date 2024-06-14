@@ -2,11 +2,11 @@
 
 export function getAlternateVibrantColorClass() {
     const vibrantColorClasses = [
-      "bg-orange-700",
-      "bg-green-700",
-      "bg-yellow-700",
-      "bg-pink-700",
-      "bg-cyan-700"
+      "bg-orange-200",
+      "bg-green-200",
+      "bg-yellow-200",
+      "bg-pink-200",
+      "bg-cyan-200"
     ];
   
     let index = 0;

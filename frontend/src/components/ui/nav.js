@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white">
+    <nav className="bg-[#fcfcf7]">
       <div className="md:px-6 max-lg:px-2">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-4xl font-semibold py-2 md:ml-2">IITJ</h2>
